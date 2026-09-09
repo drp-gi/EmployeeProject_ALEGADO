@@ -10,7 +10,7 @@ public class PieceWorkerEmployee {
     private double ratePerPiece;
 
     public PieceWorkerEmployee() {
-        //initializes numeric values to 0 and string
+        this.empName = "N/A";
     }
 
     public PieceWorkerEmployee(int empID, String empName) {
@@ -23,7 +23,7 @@ public class PieceWorkerEmployee {
         this.empID = empID;
         this.empName = empName;
         this.totalPiecesFinished = totalPiecesFinished;
-        this.ratePerPiece = ratePerPiece;
+        this.ratePerPiece = 0;
     }
 
     public int getEmpID() {
@@ -60,7 +60,7 @@ public class PieceWorkerEmployee {
 
 
 
-    public double computeSalary(int  totalPiecesFinished, double ratePerPiece) {
+    public double computeSalary() {
 
         double over;
         double total;
@@ -77,8 +77,14 @@ public class PieceWorkerEmployee {
     }
 
 
-    public displayPieceWorkerEmployee (int empID, int empName, int totalPicesFinsihed, float ratePerPiece) {
+    public void displayPieceWorkerEmployee() {
+        System.out.printf("ID: %d | Name: %s | Pieces Finished: %d | Rate/Piece: ₱%.2f%n",
+                empID, empName, totalPiecesFinished, ratePerPiece);
+    }
 
+    @Override
+    public String toString() {
+        return String.format("Overall Details\nID: %d\n Name: %s\nPieces: %d\nRate: ₱%.2f\nTotal Salary: %.2f]", empID, empName, totalPiecesFinished, ratePerPiece, computeSalary());
     }
 
 }

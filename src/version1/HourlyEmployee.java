@@ -8,7 +8,10 @@ public class HourlyEmployee {
     private double ratePerHour;
 
     public HourlyEmployee() {
-        //initializes numeric values to 0 and
+        this.empID = 0;
+        this.empName = "N/A";
+        this.totalHoursWorked = 0;
+        this.ratePerHour = 0;
     }
 
     public HourlyEmployee(int empID, String empName) {
@@ -57,7 +60,7 @@ public class HourlyEmployee {
     }
 
 
-    public double computeSalary(double ratePerHour, float totalHoursWorked) {
+    public double computeSalary() {
 
         double excessH;
         double sweldo;
@@ -77,11 +80,11 @@ public class HourlyEmployee {
     }
 
     public void displayHourlyEmployee() {
-        System.out.println(empID + empName + ratePerHour);
+        System.out.printf("ID: %d | Name: %s | Hours: %.2f | Rate: %.2f\n", empID, empName, totalHoursWorked, ratePerHour);
     }
 
     @Override
     public String toString() {
-        return String.format ("EmployeeID: %d, Name: %s, Hours Worked: %d, RateperHour: %d, Salary: %d",  empID, empName, totalHoursWorked, ratePerHour);
+        return String.format ("HourlyEmployee [EmployeeID: %d, Name: %s, Hours Worked: %.2f, RatePerHour: %.2f, Salary: %.2f]",  empID, empName, totalHoursWorked, ratePerHour, computeSalary());
     }
 }
