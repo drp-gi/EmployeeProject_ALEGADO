@@ -78,13 +78,13 @@ public class PieceWorkerEmployee {
 
 
     public void displayPieceWorkerEmployee() {
-        System.out.printf("ID: %d | Name: %s | Pieces Finished: %d | Rate/Piece: ₱%.2f%n",
+        System.out.printf("ID: %d | Name: %s | Pieces Finished: %d | Rate: %.2f\n",
                 empID, empName, totalPiecesFinished, ratePerPiece);
     }
 
     @Override
     public String toString() {
-        return String.format("Overall Details\nID: %d\n Name: %s\nPieces: %d\nRate: ₱%.2f\nTotal Salary: %.2f]", empID, empName, totalPiecesFinished, ratePerPiece, computeSalary());
+        return String.format("Overall Details\nID: %d Name: %s Pieces: %d Rate: ₱%.2f Total Salary: %.2f]", empID, empName, totalPiecesFinished, ratePerPiece, computeSalary());
     }
 
 }
