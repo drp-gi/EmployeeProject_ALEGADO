@@ -18,16 +18,14 @@ public class Name {
         this.suffix = suffix;
     }
 
-    @Override
-    public String toString() {
-        String result = lastName + ", " + firstName;
-        if (middleName != null && !middleName.isEmpty()) {
-            result += " " + middleName.charAt(0) + ".";
-        }
-        if (suffix != null && !suffix.isEmpty()) {
-            result += " " + suffix;
-        }
-        return result;
-    }
+
+
+
+
+
+
+
+
+
 
 }

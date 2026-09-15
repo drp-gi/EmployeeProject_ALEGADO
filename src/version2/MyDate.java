@@ -12,10 +12,16 @@ public class MyDate {
     }
 
     public int getMonth() {
+        if (this.month > 12 || this.month < 1) {
+            System.out.println("Enter valid month number\n");
+        }
         return month;
     }
 
     public int getDay() {
+        if (this.month > 31 || this.month < 1) {
+            System.out.println("Enter valid day number\n");
+        }
         return day;
     }
 
