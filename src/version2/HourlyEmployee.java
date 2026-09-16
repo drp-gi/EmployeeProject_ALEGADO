@@ -12,7 +12,12 @@ public class HourlyEmployee {
     public static final double BIRTHDAY_BONUS = 5000;
 
     public HourlyEmployee() {
-        this.empName = null;
+        this.empID = 0;
+        this.empName = new Name();
+        this.dateHired = new MyDate();
+        this.birthDate = new MyDate();
+        this.totalHoursWorked = 0;
+        this.ratePerHour = 0;
     }
 
     public HourlyEmployee(int empID, Name empName, MyDate dateHired, MyDate birthDate) {
@@ -71,13 +76,22 @@ public class HourlyEmployee {
         return sweldo;
     }
 
+
+    public double computeSalary() {
+        return computeSalary(0);
+    }
+
+
+
     public void displayHourlyEmployee() {
-        System.out.printf("ID: %d | Name: %s | Hours: %.2f | Rate: %.2f\n", empID, empName, totalHoursWorked, ratePerHour);
+        System.out.printf("ID: %d | Name: %s | DOB: %s | Hired: %s | Hours: %.2f | Rate: ₱%.2f/hr%n",
+                empID, empName, birthDate, dateHired, totalHoursWorked, ratePerHour);
     }
 
     @Override
     public String toString() {
-        return String.format("HourlyEmployee [EmployeeID: %d, Name: %s, Hours Worked: %.2f, RatePerHour: %.2f, Salary: %.2f]",
-                empID, empName, totalHoursWorked, ratePerHour, computeSalary(9));
+        return String.format(
+                "HourlyEmployee [ID: %d, Name: %s, DOB: %s, Hired: %s, Hours: %.2f, Rate: ₱%,.2f, Total Salary: ₱%,.2f]",
+                empID, empName, birthDate, dateHired, totalHoursWorked, ratePerHour, computeSalary());
     }
 }

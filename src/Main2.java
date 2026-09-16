@@ -56,8 +56,8 @@ public class Main2 {
 
 
         System.out.println("\nBirthday Incentive Check\n");
-        System.out.printf("Regular Month (%d) Salary: %.2f\n", a.getBirthDate().getMonth(), a.computeSalary(9));
-
+        System.out.printf("Regular Month (%d) Salary: %.2f\n", a.getBirthDate().getMonth(), a.computeSalary());
+        System.out.printf("Birth Month (Sep) Salary (+₱5,000.00): ₱%,.2f%n", a.computeSalary(9));
 
 
 

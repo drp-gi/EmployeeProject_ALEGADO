@@ -1,6 +1,6 @@
-package version2;
+package version3;
 
-public class MyDate {
+public class MyDate implements Cloneable {
     private int day;
     private int month;
     private int year;
@@ -32,10 +32,13 @@ public class MyDate {
     public void setDay(int day) {
         if (day >= 1 && day <= 31) {
             this.day = day;
+
         } else {
-            System.out.println("Invalid day, defaulting to 1.");
+            System.out.println("Invalid day:)\n");
             this.day = 1;
         }
+
+
     }
 
     public void setMonth(int month) {
@@ -64,11 +67,36 @@ public class MyDate {
         System.out.println(this.toString());
     }
 
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (!(obj instanceof MyDate)) return false;    // if not of name enddd it
+        MyDate other = (MyDate) obj;
+        return this.day == other.day
+                && this.month == other.month
+                && this.year == other.year;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(day, month, year);
+
+    }
+
+    @Override
+    public MyDate clone() throws CloneNotSupportedException {
+        return (MyDate) super.clone();
+    }
+
     @Override
     public String toString() {
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        // %02d forces 2 digits with a leading zero if needed (1 -> "01")
         return String.format("%02d %s %d", day, months[month - 1], year);
     }
+
 }

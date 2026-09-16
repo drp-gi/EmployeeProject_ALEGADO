@@ -1,6 +1,6 @@
-package version2;
+package version3;
 
-public class Name {
+public class Name implements Cloneable {
     private String firstName;
     private String middleName;
     private String lastName;
@@ -34,6 +34,7 @@ public class Name {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
+        this.suffix = "";
     }
 
     public String getFirstName() {
@@ -75,15 +76,35 @@ public class Name {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Name)) return false;         // if not of name enddd it
+        Name other = (Name) obj;                          //
+        return this.firstName.equalsIgnoreCase(other.firstName)
+                && this.middleName.equalsIgnoreCase(other.middleName)
+                && this.lastName.equalsIgnoreCase(other.lastName)
+                && this.suffix.equalsIgnoreCase(other.suffix);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(firstName, middleName, lastName, suffix);
+    }
+
+    @Override
+    public Name clone() throws CloneNotSupportedException {
+        return (Name) super.clone();
+    }
+
+    @Override
     public String toString() {
         String result = lastName + ", " + firstName;
         if (middleName != null && !middleName.isEmpty()) {
-            result = result + " " + middleName.charAt(0) + ".";
+            result += " " + middleName.charAt(0) + ".";
         }
         if (suffix != null && !suffix.isEmpty()) {
             result += " " + suffix;
         }
         return result;
     }
-
 }
